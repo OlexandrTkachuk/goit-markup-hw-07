@@ -522,7 +522,7 @@ footer {
   display: inline-block;
   justify-content: center;
   align-items: center;
-  
+
   padding: 10px 62px 10px 29px;
 }
 .subscription__icon {
@@ -568,11 +568,37 @@ footer {
   display: flex;
   flex-wrap: wrap;
 }
-.thumb {
+.galery-list__item {
+  border: 1px solid #eeeeee;
+  width: calc((100% - 60px) / 3);
+
+  margin-right: 30px;
+  margin-bottom: 30px;
+
+  transition: box-shadow 250ms var(--timing-function);
+}
+.galery-list__item:nth-child(3n) {
+  margin-right: 0;
+}
+.galery-list__item:nth-last-child(-n + 3) {
+  margin-bottom: 0;
+}
+.galery-list__item:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.galery-list__item:hover .galery-list__text {
+  transform: translateY(0);
+}
+.galery-list__img {
+  margin-top: -1px;
+  margin-left: -1px;
+}
+.galery-list__thumb {
   position: relative;
   overflow: hidden;
 }
-.thumb-desc {
+.galery-list__text {
   position: absolute;
   top: 0;
   left: 0;
@@ -589,39 +615,7 @@ footer {
 
   transition: transform 250ms var(--timing-function);
 }
-.galery-list .item {
-  border: 1px solid #eeeeee;
-  width: calc((100% - 60px) / 3);
-
-  margin-right: 30px;
-  margin-bottom: 30px;
-
-  transition: box-shadow 250ms var(--timing-function);
-}
-
-.galery-list .item:hover {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-.galery-list .item:hover .thumb-desc {
-  transform: translateY(0);
-}
-
-.galery-list .item img {
-  margin-top: -1px;
-  margin-left: -1px;
-}
-
-.galery-list .item:nth-child(3n) {
-  margin-right: 0;
-}
-
-.galery-list .item:nth-last-child(-n + 3) {
-  margin-bottom: 0;
-}
-
-.galery-title {
+.galery-list__title {
   color: var(--black-color);
 
   font-size: 18px;
@@ -629,17 +623,15 @@ footer {
   font-weight: 700;
   letter-spacing: 0.06em;
 }
-
-.galery-text {
+.galery-list__type {
   line-height: 1.88;
   font-size: 16px;
 }
-
-.card-discription {
+.galery-list__card {
   padding: 20px 25px;
 }
 
-/* modal + forms + backdrop */
+/* ----------modal + forms + backdrop------------ */
 .backdrop {
   position: fixed;
   top: 0;
@@ -654,17 +646,14 @@ footer {
 
   transition: opacity 250ms var(--timing-function), visibility 250ms var(--timing-function);
 }
-
 .backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
-
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0.8);
 }
-
 .modal {
   position: absolute;
   top: 50%;
@@ -681,8 +670,7 @@ footer {
 
   transition: transform 250ms var(--timing-function);
 }
-
-.modal .button-close {
+.modal__button--close {
   position: absolute;
   right: 8px;
   top: 8px;
@@ -690,19 +678,17 @@ footer {
   height: 30px;
 
   fill: #000000;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: var(--footer-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   cursor: pointer;
 
   transition: fill 250ms var(--timing-function);
 }
-
-.modal .button-close:hover {
+.modal__button--close:hover {
   fill: var(--blue-color);
 }
-
-.modal-icon {
+.modal__icon {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -714,8 +700,7 @@ footer {
   margin: 0 auto;
   padding: 40px;
 }
-
-.form-title {
+.form__title {
   font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
@@ -726,7 +711,6 @@ footer {
 
   margin-bottom: 12px;
 }
-
 .form-field {
   position: relative;
   margin-bottom: 10px;
@@ -734,17 +718,15 @@ footer {
   display: flex;
   flex-direction: column;
 }
-
-.form-field label,
-.form-textarea label {
+.form-field__label,
+.form-textarea__label {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.01em;
 
   margin-bottom: 4px;
 }
-
-.form-field input {
+.form-field__input {
   width: 448px;
   height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -754,12 +736,10 @@ footer {
   outline: 1px solid transparent;
   transition: border-color 250ms var(--timing-function);
 }
-
-.form-field input:focus {
+.form-field__input:focus {
   border-color: var(--blue-color);
 }
-
-.form-input ~ .icon {
+.form-field__input ~ .form-field__icon {
   position: absolute;
   left: 12px;
   bottom: 11px;
@@ -767,37 +747,29 @@ footer {
 
   transition: fill 250ms var(--timing-function);
 }
-
-.form-input:focus ~ .icon {
+.form-field__input:focus ~ .form-field__icon {
   fill: var(--blue-color);
 }
-
 .form-textarea {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
-
-textarea {
+.form-textarea__input {
   resize: none;
   width: 448px;
   height: 120px;
 
-  padding: 12px 16px;
-}
-
-.form-textarea textarea {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   outline: 1px solid transparent;
+  padding: 12px 16px;
 
   transition: border 250ms var(--timing-function);
 }
-
-.form-textarea textarea:focus {
+.form-textarea__input:focus {
   border: 1px solid var(--blue-color);
 }
-
 /* checkbox-area */
 .checkbox {
   margin-bottom: 30px;
@@ -806,31 +778,27 @@ textarea {
   align-items: center;
   justify-content: center;
 }
-
-.checkbox .label {
+.checkbox__label {
   display: flex;
   align-items: center;
   justify-content: center;
   line-height: 1.71;
 }
-
-.checkbox .link {
-  padding-left: 0.3rem;
-  line-height: 1.71;
-  text-decoration: underline;
-  text-decoration-skip-ink: none;
-  color: var(--blue-color);
-}
-
-.checkbox-input {
+.checkbox__input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 
   position: absolute;
 }
-
-.checkbox .icon {
+.checkbox__link {
+  padding-left: 0.3rem;
+  line-height: 1.71;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--blue-color);
+}
+.checkbox__icon {
   display: inline-block;
   width: 16px;
   height: 15px;
@@ -843,8 +811,7 @@ textarea {
   transition: background-color 250ms var(--timing-function),
     border-color 250ms var(--timing-function), background-image 250ms var(--timing-function);
 }
-
-.checkbox-input:checked + .icon {
+.checkbox__input:checked + .checkbox__icon {
   background-color: var(--blue-color);
   border-color: var(--blue-color);
 
@@ -853,31 +820,15 @@ textarea {
   background-origin: border-box;
   background-position: center;
 }
-
-/* button-submit */
-.form .button {
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  letter-spacing: 0.06em;
-
-  color: var(--white-color);
-  background-color: var(--blue-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  border: 0px;
-  cursor: pointer;
-
+.modal__button--submit {
   display: flex;
   margin: 0 auto;
   padding: 10px 55px 10px 56px;
 
   transition: background-color 250ms var(--timing-function), box-shadow 250ms var(--timing-function);
 }
-
-.form button:hover,
-.form button:focus {
+.modal__button--submit:hover,
+.modal__button--submit:focus {
   background-color: #188ce8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
