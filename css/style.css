@@ -9,7 +9,6 @@
   --footer-bg-color: #2f303a;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* ---------------------Глобальні селектори--------------- */
 body {
   font-family: 'Roboto', sans-serif;
@@ -20,7 +19,6 @@ body {
   line-height: 1.14;
   letter-spacing: 0.03em;
 }
-
 h1,
 h2,
 h3,
@@ -31,21 +29,16 @@ p {
   margin-top: 0;
   margin-bottom: 0;
 }
-
 img {
   display: block;
   /* max-width: 100%;
   height: auto; */
 }
-
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
-/* Центрує та задає максимальну ширину контейнеру */
-
 /* --------------------------Utils-----------------------  */
 .container {
   width: 1200px;
@@ -74,7 +67,6 @@ ul {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
-
 .title {
   color: var(--black-color);
 
@@ -83,8 +75,7 @@ ul {
   font-size: 36px;
   line-height: 1.16;
 }
-
-/* ------------------------------HEADER--------------------------- */
+/* --------------------------HEADER------------------------- */
 .header {
   min-height: 81px;
   border-bottom: 1px solid #ececec;
@@ -467,7 +458,7 @@ footer {
 .attraction-list {
   display: flex;
 }
-.attraction-list__item:not(last-child) {
+.attraction-list__item:not(:last-child) {
   margin-right: 10px;
 }
 .attraction-list__link {
